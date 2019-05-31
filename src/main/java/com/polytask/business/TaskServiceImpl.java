@@ -13,4 +13,9 @@ public class TaskServiceImpl implements TaskService {
     public void add(Task task) {
         taskRepository.add(task);
     }
+
+    @Override
+    public void modify(Task task) {
+        taskRepository.modify(task);
+    }
 }

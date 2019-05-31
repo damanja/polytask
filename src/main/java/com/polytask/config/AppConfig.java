@@ -19,8 +19,8 @@ public class AppConfig implements WebMvcConfigurer {
 
     @Bean
     TaskRepository taskRepository(){
-       // return new JpaTaskRepository();
-        return new JdbcTaskRepository(dataSource());
+        return new JpaTaskRepository();
+       // return new JdbcTaskRepository(dataSource());
     }
 
     @Bean

@@ -7,4 +7,6 @@ import java.util.List;
 public interface TaskRepository {
     List findAll();
     void add(Task task);
+
+    void modify(Task task);
 }

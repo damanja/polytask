@@ -7,4 +7,5 @@ package com.polytask.business;
 
 public interface TaskService {
     void add(Task task);
+    void modify(Task task);
 }

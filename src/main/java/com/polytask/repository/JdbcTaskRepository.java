@@ -53,4 +53,16 @@ public class JdbcTaskRepository implements TaskRepository {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public void modify(Task task) {
+        try{
+            Connection connection = dataSource.getConnection();
+            String sql = "UPDATE task SET content = \" " + task.getContent() +  "\" WHERE task_ID=" + task.getTask_id();
+
+            connection.createStatement().execute(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

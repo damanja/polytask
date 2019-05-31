@@ -6,7 +6,8 @@ import javax.persistence.*;
 @Table(name="task")
 public class Task {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="task_ID")
     private int task_id;
 
     @Column(name="CONTENT")
@@ -32,5 +33,13 @@ public class Task {
     public String toString() {
         return "task{" +
                 "content='" + content + '\'' + '}';
+    }
+
+    public int getTask_id() {
+        return task_id;
+    }
+
+    public void setTask_id(int task_id) {
+        this.task_id = task_id;
     }
 }

@@ -16,7 +16,7 @@ public class JpaTaskRepository implements TaskRepository {
 
     @Override
     public List<Task> findAll() {
-        Query query = entityManager.createQuery("SELECT s FROM task s");
+        Query query = entityManager.createQuery("SELECT s FROM Task s");
         return query.getResultList();
     }
 
@@ -24,4 +24,10 @@ public class JpaTaskRepository implements TaskRepository {
     public void add(Task task) {
         entityManager.persist(task);
     }
+
+    @Override
+    public void modify(Task task) {
+
+    }
+
 }
