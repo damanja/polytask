@@ -17,7 +17,7 @@ public class JdbcTaskRepository implements TaskRepository {
     }
 
     @Override
-    public List findAll() {
+    public List findAll(String username) {
         List<Task> results = new ArrayList<>();
         try{
             Connection connection = dataSource.getConnection();

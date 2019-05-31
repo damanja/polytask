@@ -7,6 +7,7 @@ import com.polytask.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @RestController
@@ -18,13 +19,15 @@ public class TaskController {
     FeedService feedService;
 
     @GetMapping("/taskSet")
-    public List<Task> getTask(){
-        return feedService.fetchAll();
+    public List<Task> getTask(Principal principal){
+        String username = principal.getName();
+        return feedService.fetchAll(username);
     }
 
     @PostMapping("/addTask")
-    public void addTask(@RequestBody String content){
-        taskService.add(new Task(content));
+    public void addTask(@RequestBody String content, Principal principal){
+        String username = principal.getName();
+        taskService.add(new Task(content,username));
     }
 
     @PutMapping("/modifyTask/{task_id}")

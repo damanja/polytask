@@ -13,8 +13,16 @@ public class Task {
     @Column(name="CONTENT")
     private String content;
 
+
+    @Column(name="username")
+    private String username;
+
     public Task(){
 
+    }
+    public Task(String content, String username){
+        this.content = content;
+        this.username = username;
     }
 
     public Task(String content){

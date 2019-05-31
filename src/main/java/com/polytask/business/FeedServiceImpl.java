@@ -13,8 +13,8 @@ public class FeedServiceImpl implements FeedService {
     }
 
     @Override
-    public List fetchAll() {
-        return taskRepository.findAll();
+    public List fetchAll(String username) {
+        return taskRepository.findAll(username);
     }
 
 
