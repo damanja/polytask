@@ -55,6 +55,11 @@ public class JdbcTaskRepository implements TaskRepository {
     }
 
     @Override
+    public void modify(int task_id, String content) {
+
+    }
+
+/*    @Override
     public void modify(Task task) {
         try{
             Connection connection = dataSource.getConnection();
@@ -64,5 +69,5 @@ public class JdbcTaskRepository implements TaskRepository {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

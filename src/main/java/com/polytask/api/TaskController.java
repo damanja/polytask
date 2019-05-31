@@ -29,7 +29,7 @@ public class TaskController {
 
     @PutMapping("/modifyTask/{task_id}")
     public void modifyTask(@PathVariable("task_id") int task_id,@RequestBody String content){
-
+        taskService.modify(task_id, content);
     }
 
 }

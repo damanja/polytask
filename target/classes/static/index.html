@@ -72,8 +72,16 @@
 
 
         <ul class="list-group" ng-repeat="task in tasks">
-            <li>{{task.content}}</li>
-
+            <li>
+                {{task.content}} {{task.task_id}}
+                <form class="form-inline">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="inputNewTask" class="sr-only">Changer tâche</label>
+                        <input type="text" class="form-control" id="inputNewTask" placeholder="Changer la tâche" ng-model="task.formtask">
+                    </div>
+                    <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>
+                </form>
+            </li>
         </ul>
     </div>
 </div><!-- /.container -->
@@ -98,8 +106,16 @@
             $http.post("/addTask", $scope.formData).then(function(){
                $scope.formData = {};
                location.reload();
-            });
-        }
+            })
+        };
+
+        $scope.modifier = function(task_id,content){
+            $http.put("/modifyTask/" + task_id,content)
+                .then(function(data){
+                    console.log(data);
+                    location.reload();
+            })
+        };
     })
 
 </script>

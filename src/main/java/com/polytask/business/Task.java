@@ -42,4 +42,8 @@ public class Task {
     public void setTask_id(int task_id) {
         this.task_id = task_id;
     }
+
+    public Task getTask(int task_id){
+        return this;
+    }
 }

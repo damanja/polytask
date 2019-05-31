@@ -8,5 +8,5 @@ public interface TaskRepository {
     List findAll();
     void add(Task task);
 
-    void modify(Task task);
+    void modify(int task_id, String content);
 }
