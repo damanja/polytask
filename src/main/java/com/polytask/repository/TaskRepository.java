@@ -9,4 +9,5 @@ public interface TaskRepository {
     void add(Task task);
 
     void modify(int task_id, String content);
+    void delete(int task_id);
 }

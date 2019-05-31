@@ -32,4 +32,9 @@ public class TaskController {
         taskService.modify(task_id, content);
     }
 
+    @DeleteMapping("/deleteTask/{task_id}")
+    public void deleteTask(@PathVariable("task_id") int task_id){
+        taskService.delete(task_id);
+    }
+
 }

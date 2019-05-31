@@ -27,8 +27,6 @@ public class JpaTaskRepository implements TaskRepository {
 
     @Override
     public void modify(int task_id, String content) {
-
-
         Task task = entityManager.find(Task.class, task_id);
 //        entityManager.getTransaction().begin();
         task.setContent(content);
@@ -36,6 +34,12 @@ public class JpaTaskRepository implements TaskRepository {
 //        entityManager.close();
         entityManager.merge(task);
     }
-    
+
+    @Override
+    public void delete(int task_id) {
+        Task task = entityManager.find(Task.class, task_id);
+        entityManager.remove(task);
+    }
+
 
 }

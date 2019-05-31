@@ -18,4 +18,9 @@ public class TaskServiceImpl implements TaskService {
     public void modify(int task_id, String content) {
         taskRepository.modify(task_id,content);
     }
+
+    @Override
+    public void delete(int task_id) {
+        taskRepository.delete(task_id);
+    }
 }

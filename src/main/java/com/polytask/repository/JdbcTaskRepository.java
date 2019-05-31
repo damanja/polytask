@@ -59,6 +59,11 @@ public class JdbcTaskRepository implements TaskRepository {
 
     }
 
+    @Override
+    public void delete(int task_id) {
+
+    }
+
 /*    @Override
     public void modify(Task task) {
         try{

@@ -81,6 +81,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>
                 </form>
+                <button ng-click="supprimer(task.task_id)" class="btn btn-danger">X</button>
             </li>
         </ul>
     </div>
@@ -113,6 +114,14 @@
             $http.put("/modifyTask/" + task_id,content)
                 .then(function(data){
                     console.log(data);
+                    location.reload();
+            })
+        };
+
+        $scope.supprimer = function(task_id){
+            $http.delete("/deleteTask/" + task_id)
+                .then(function(){
+                    console.log("ok");
                     location.reload();
             })
         };
