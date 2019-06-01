@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PolyTask">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+</head>
+
+<body ng-controller="RegisterController">
+<form>
+    Username :
+    <label>
+        <p class="label-txt">ENTER YOUR USERNAME</p>
+        <input type="text" class="input" ng-model="user.username">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <br/>
+    Password :
+    <label>
+        <p class="label-txt">ENTER YOUR PASSWORD</p>
+        <input type="text" class="input" ng-model="user.password">
+        <div class="line-box">
+            <div class="line"></div>
+        </div>
+    </label>
+    <button ng-click="register()" type="submit">submit</button>
+</form>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+
+<script>
+    angular.module('PolyTask',[]).controller('RegisterController', function($scope, $http){
+        $scope.register = function(){
+            $http.post("/register", $scope.user).then(function(){
+                $scope.user = {};
+                alert("vous etes bien inscrit")
+                window.location.href='/';
+            })
+        };
+    })
+</script>
+
+</body>
+</html>

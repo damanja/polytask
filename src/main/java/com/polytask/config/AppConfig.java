@@ -1,13 +1,8 @@
 package com.polytask.config;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
-import com.polytask.business.FeedService;
-import com.polytask.business.FeedServiceImpl;
-import com.polytask.business.TaskService;
-import com.polytask.business.TaskServiceImpl;
-import com.polytask.repository.JdbcTaskRepository;
-import com.polytask.repository.JpaTaskRepository;
-import com.polytask.repository.TaskRepository;
+import com.polytask.business.*;
+import com.polytask.repository.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -21,6 +16,16 @@ public class AppConfig implements WebMvcConfigurer {
     TaskRepository taskRepository(){
         return new JpaTaskRepository();
        // return new JdbcTaskRepository(dataSource());
+    }
+
+    @Bean
+    UserRepository userRepository(){
+        return new JpaUserRepository();
+    }
+
+    @Bean
+    AuthorityRepository authorityRepository(){
+        return new JpaAuthorityRepository();
     }
 
     @Bean
@@ -42,4 +47,11 @@ public class AppConfig implements WebMvcConfigurer {
     TaskService taskService(){
         return new TaskServiceImpl(taskRepository());
     }
+
+    @Bean
+    RegisterService registerService(){
+        return new RegisterServiceImpl(userRepository(), authorityRepository());
+    }
+
+
 }

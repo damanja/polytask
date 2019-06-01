@@ -63,7 +63,13 @@
 
     <div>
         <h1>
-        <button ng-click="getstart()" type="button" class="btn btn-info">Let's get started</button>
+            <button ng-click="getstart()" type="button" class="btn btn-info">Let's get started</button>
+        </h1>
+    </div>
+
+    <div>
+        <h1>
+            <button ng-click="register()" type="button" class="btn btn-info">Register</button>
         </h1>
     </div>
 
@@ -82,7 +88,11 @@
     angular.module('PolyTask',[]).controller('HomeController', function($scope, $http){
         $scope.getstart= function(){
             window.location.href='/task.html';
-        }
+        };
+
+            $scope.register= function(){
+                window.location.href='/register.html';
+            };
     })
 </script>
 </body>

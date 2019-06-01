@@ -33,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .mvcMatchers("/").permitAll()
                 .mvcMatchers("/login*").permitAll()
+                .mvcMatchers("/register*").permitAll()
                 .anyRequest().authenticated()
                 //     .mvcMatchers("/admin/*").hasRole("admin")
                 //       .mvcMatchers("/about","help").permitAll()

@@ -30,6 +30,7 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
     };
 
     $scope.deconnecter = function(){
+        alert("vous allez être déconnecté");
         window.location.href='/logout';
     }
 })
