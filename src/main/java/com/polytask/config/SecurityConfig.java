@@ -31,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-               // .mvcMatchers("/", "/taskSet").permitAll()
+                .mvcMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 //     .mvcMatchers("/admin/*").hasRole("admin")
                 //       .mvcMatchers("/about","help").permitAll()

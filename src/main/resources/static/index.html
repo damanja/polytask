@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang=fr ng-app="PolyTask">
+<html lang="en" ng-app="PolyTask">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +30,7 @@
     <![endif]-->
 </head>
 
-<body ng-controller="MainController">
+<body ng-controller="HomeController">
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -56,35 +56,17 @@
 <div class="container">
 
     <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
+        <h1>Home Page</h1>
         <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a
             mostly barebones HTML document.</p>
     </div>
+
     <div>
-
-        <form class="form-inline">
-            <div class="form-group mx-sm-3 mb-2">
-                <label for="inputTask" class="sr-only">Nouvelle tâche</label>
-                <input type="text" class="form-control" id="inputTask" placeholder="Ajouter une tâche" ng-model="formData">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2" ng-click="ajouter()">Ajouter</button>
-        </form>
-
-
-        <ul class="list-group" ng-repeat="task in tasks">
-            <li>
-                {{task.content}} {{task.task_id}}
-                <form class="form-inline">
-                    <div class="form-group mx-sm-3 mb-2">
-                        <label for="inputNewTask" class="sr-only">Changer tâche</label>
-                        <input type="text" class="form-control" id="inputNewTask" placeholder="Changer la tâche" ng-model="task.formtask">
-                    </div>
-                    <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>
-                </form>
-                <button ng-click="supprimer(task.task_id)" class="btn btn-danger">X</button>
-            </li>
-        </ul>
+        <h1>
+        <button ng-click="getstart()" type="button" class="btn btn-info">Let's get started</button>
+        </h1>
     </div>
+
 </div><!-- /.container -->
 
 <!-- Bootstrap core JavaScript
@@ -93,43 +75,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-
 <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 
+
 <script>
-    angular.module('PolyTask',[]).controller('MainController', function($scope, $http, $location){
-        $http.get("/taskSet").then(function(response){
-            $scope.tasks = response.data;
-            console.log($scope.tasks);
-        });
-
-        $scope.ajouter = function(){
-            $http.post("/addTask", $scope.formData).then(function(){
-               $scope.formData = {};
-               location.reload();
-            })
-        };
-
-        $scope.modifier = function(task_id,content){
-            $http.put("/modifyTask/" + task_id,content)
-                .then(function(data){
-                    console.log(data);
-                    location.reload();
-            })
-        };
-
-        $scope.supprimer = function(task_id){
-            $http.delete("/deleteTask/" + task_id)
-                .then(function(){
-                    console.log("ok");
-                    location.reload();
-            })
-        };
+    angular.module('PolyTask',[]).controller('HomeController', function($scope, $http){
+        $scope.getstart= function(){
+            window.location.href='/task.html';
+        }
     })
-
 </script>
-
-
 </body>
 </html>
 
