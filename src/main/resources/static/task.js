@@ -28,4 +28,8 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
                 location.reload();
             })
     };
+
+    $scope.deconnecter = function(){
+        window.location.href='/logout';
+    }
 })

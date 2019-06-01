@@ -1,10 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="PolyTask">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Page Description">
+    <meta name="author" content="manjary">
+    <title>Page Title</title>
 
+</head>
+<body ng-controller="LoginController">
+<h1>Body</h1>
+    <h1>LOGIN PAGE</h1>
+        <span ng-show="erreur">
+          Username or password error
+        </span>
+    <form name='f' action="perform_login" method='POST'>
+        <table>
+            <tr>
+                <td>User:</td>
+                <td><input type='text' name='username' value=''></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type='password' name='password' /></td>
+            </tr>
+            <tr>
+                <td><input name="submit" type="submit" value="submit" /></td>
+            </tr>
+        </table>
+    </form>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+<script>
+    angular.module('PolyTask',[]).controller('LoginController', function($scope, $http){
+        $scope.erreur = false;
+        console.log("coucou");
+        function obtenirParametre (sVar) {
+            return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
+        }
+
+        if(obtenirParametre("error") == "true") $scope.erreur = true;
+
+    })
+
+
+
+
+</script>
 </body>
 </html>

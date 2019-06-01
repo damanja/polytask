@@ -1,16 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="eb96c130-bbf3-4647-9c2e-b574a6354f95" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/business/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/task.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/task.js" afterDir="false" />
+    <list default="true" id="eb96c130-bbf3-4647-9c2e-b574a6354f95" name="Default Changelist" comment="handle login/logout">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/api/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/business/Authority.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaUserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/polytask/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/polytask/business/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/polytask/business/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/task.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/task.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/polytask/config/AppConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/polytask/config/AppConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/polytask/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/polytask/config/SecurityConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -56,79 +64,90 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="95" selection-start-line="95" selection-end-line="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/api/TaskController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+            <state relative-caret-position="275">
+              <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="10" column="20" lean-forward="true" selection-start-line="9" selection-end-line="10" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#736#737#0" expanded="true" />
+                <element signature="e#767#768#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/TaskServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
+              <folding>
+                <element signature="e#444#445#0" expanded="true" />
+                <element signature="e#498#499#0" expanded="true" />
+                <element signature="e#551#552#0" expanded="true" />
+                <element signature="e#597#598#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/Task.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="7" selection-start-line="7" selection-end-line="55" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-start-column="2" selection-end-line="14" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/User.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/Authority.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/TaskServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
+            <state relative-caret-position="77">
+              <caret line="7" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/TaskService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -136,17 +155,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="50">
+              <caret line="20" selection-start-line="20" selection-start-column="2" selection-end-line="23" selection-end-column="7" />
+              <folding>
+                <element signature="e#1220#1221#0" expanded="true" />
+                <element signature="e#1280#1281#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/FeedServiceImpl.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JdbcTaskRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+            <state relative-caret-position="-129">
+              <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -156,9 +179,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -176,23 +200,36 @@
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/AppStarter.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="642893c4-a110-4cae-a974-3c9dc2837da5/schema/PolyTask/table/task.sql" />
-        <option value="$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/TaskService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/TaskServiceImpl.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/FeedService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/FeedServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/repository/TaskRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/repository/JdbcTaskRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/Task.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaTaskRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/login.html" />
-        <option value="$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/task.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/task.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/api/TaskController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/Register.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/task.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/task.js" />
+        <option value="$PROJECT_DIR$/src/main/java/Scratch.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServicceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServicce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/Authorities.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/register.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/login.html" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/api/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaUserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/polytask/business/Authority.java" />
       </list>
     </option>
   </component>
@@ -215,6 +252,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -316,7 +354,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -335,6 +372,11 @@
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.polytask.business" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -347,7 +389,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AppStarter">
     <configuration name="AppStarter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.polytask.AppStarter" />
       <module name="PolyTask" />
@@ -361,9 +403,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Scratch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Scratch" />
+      <module name="PolyTask" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppStarter" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="PolyTask" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.polytask.AppStarter" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.AppStarter" />
+        <item itemvalue="Application.Scratch" />
       </list>
     </recent_temporary>
   </component>
@@ -380,19 +437,28 @@
       <workItem from="1559297949815" duration="570000" />
       <workItem from="1559298570914" duration="14049000" />
       <workItem from="1559333827973" duration="4426000" />
-      <workItem from="1559374645219" duration="2771000" />
+      <workItem from="1559374645219" duration="8299000" />
+      <workItem from="1559393221835" duration="11954000" />
     </task>
+    <task id="LOCAL-00001" summary="add home page">
+      <created>1559378220727</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559378220728</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21816000" />
+    <option name="totallyTimeSpent" value="39298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2596154" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49820143" visible="true" weight="0.2628205" />
+      <window_info id="Structure" order="1" sideWeight="0.50179857" side_tool="true" weight="0.2596154" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -407,11 +473,11 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Spring" order="7" weight="0.32894737" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32894737" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32894737" />
       <window_info anchor="bottom" id="Database Changes" order="12" weight="0.32894737" />
       <window_info anchor="bottom" id="Version Control" order="13" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32969433" />
@@ -422,14 +488,18 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.20032051" />
+      <window_info anchor="right" id="Database" order="6" weight="0.20032051" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Bean Validation" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="9" visible="true" weight="0.32959402" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add home page" />
+    <option name="LAST_COMMIT_MESSAGE" value="add home page" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot-dependencies/2.1.4.RELEASE/spring-boot-dependencies-2.1.4.RELEASE.pom">
@@ -482,19 +552,180 @@
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/80b1862b-b6b7-4765-81af-2ff1821ea4fe/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/AppStarter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Scratch.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/TaskServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1245">
+          <caret line="83" column="12" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/FeedService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/FeedServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="35" selection-start-line="2" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="97" selection-start-line="97" selection-end-line="97" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="591">
+          <caret line="71" column="12" selection-start-line="71" selection-start-column="12" selection-end-line="71" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/jshell/jshell_console.snippet">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/api/TaskController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/api/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/UserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/TaskRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaUserRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" selection-start-line="22" selection-start-column="2" selection-end-line="23" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaTaskRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#40#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JdbcTaskRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-129">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="48" column="40" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="50">
+          <caret line="20" selection-start-line="20" selection-start-column="2" selection-end-line="23" selection-end-column="7" />
+          <folding>
+            <element signature="e#1220#1221#0" expanded="true" />
+            <element signature="e#1280#1281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/TaskService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="9" selection-end-line="10" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#736#737#0" expanded="true" />
+            <element signature="e#767#768#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -512,121 +743,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/TaskService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="29" selection-start-line="10" selection-start-column="29" selection-end-line="10" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JdbcTaskRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/FeedService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/TaskRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="7" column="33" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/repository/JpaTaskRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/Task.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/AppConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/FeedServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/config/SecurityConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="33" column="32" selection-start-line="33" selection-start-column="32" selection-end-line="33" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/TaskServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/login.html">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="16" />
+          <caret line="7" selection-start-line="7" selection-end-line="55" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="95" selection-start-line="95" selection-end-line="97" />
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-start-column="2" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/task.js">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/RegisterService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="81" selection-start-line="2" selection-start-column="81" selection-end-line="2" selection-end-column="81" />
+        <state relative-caret-position="45">
+          <caret line="3" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/Authority.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/api/TaskController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="22" column="46" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
+        <state relative-caret-position="77">
+          <caret line="7" selection-start-line="7" selection-start-column="2" selection-end-line="8" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/polytask/business/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
         </state>
       </provider>
     </entry>
