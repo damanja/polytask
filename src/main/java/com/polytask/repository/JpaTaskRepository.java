@@ -42,4 +42,15 @@ public class JpaTaskRepository implements TaskRepository {
         entityManager.remove(task);
     }
 
+    @Override
+    public void check(int task_id) {
+        Task task = entityManager.find(Task.class, task_id);
+//        entityManager.getTransaction().begin();
+        int i = task.getDone();
+        if (i==0) task.setDone(1);
+        else task.setDone(0);
+//        entityManager.getTransaction().commit();
+//        entityManager.close();
+        entityManager.merge(task);
+    }
 }

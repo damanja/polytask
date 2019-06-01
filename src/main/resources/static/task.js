@@ -33,4 +33,13 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
         alert("vous allez être déconnecté");
         window.location.href='/logout';
     }
+
+
+    $scope.check = function(task_id){
+        $http.put("/check/" + task_id)
+            .then(function(data){
+                console.log(data);
+                location.reload();
+            })
+    };
 })

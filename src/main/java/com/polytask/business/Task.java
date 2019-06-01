@@ -17,12 +17,16 @@ public class Task {
     @Column(name="username")
     private String username;
 
+    @Column(name="done")
+    private int done;
+
     public Task(){
 
     }
     public Task(String content, String username){
         this.content = content;
         this.username = username;
+        this.done = 0;
     }
 
     public Task(String content){
@@ -51,7 +55,12 @@ public class Task {
         this.task_id = task_id;
     }
 
-    public Task getTask(int task_id){
-        return this;
+
+    public int getDone() {
+        return done;
+    }
+
+    public void setDone(int done) {
+        this.done = done;
     }
 }

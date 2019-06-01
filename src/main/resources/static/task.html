@@ -21,6 +21,16 @@
             padding: 40px 15px;
             text-align: center;
         }
+
+        .notdone {
+            color : red;
+            text-decoration : none;
+        }
+        .done {
+            color : green;
+            text-decoration : line-through;
+        }
+
     </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -83,6 +93,7 @@
                     <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>
                 </form>
                 <button ng-click="supprimer(task.task_id)" class="btn btn-danger">X</button>
+                <button ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}" ng-click="check(task.task_id)">o</button>
             </li>
         </ul>
     </div>

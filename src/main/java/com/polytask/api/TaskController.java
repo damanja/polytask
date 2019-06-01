@@ -40,4 +40,9 @@ public class TaskController {
         taskService.delete(task_id);
     }
 
+    @PutMapping("/check/{task_id}")
+    public void check(@PathVariable("task_id") int task_id){
+        taskService.check(task_id);
+    }
+
 }
