@@ -2,44 +2,159 @@
 <html lang="en" ng-app="PolyTask">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Page Description">
-    <meta name="author" content="manjary">
-    <title>Page Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+    <title>Todo list </title>
+    <link rel="icon" href="images/logo.png">
 
 </head>
 <body ng-controller="LoginController">
-<h1>Body</h1>
-    <h1>LOGIN PAGE</h1>
-        <span ng-show="erreur">
-          Username or password error
-        </span>
-    <form name='f' action="perform_login" method='POST'>
-        <table>
-            <tr>
-                <td>User:</td>
-                <td><input type='text' name='username' id="username" value='' required autofocus></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type='password' name='password' id="mdp" required/></td>
-            </tr>
-            <tr>
-                <td><input name="submit" type="submit" value="submit" /></td>
-            </tr>
-        </table>
-    </form>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+
+<!---Start navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+    <a class="navbar-brand" href="#Welcome">
+        <img src="images/logo.png" width="50" height="50" class="d-inline-block" alt=""> Todo List
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Welcome</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/login.html">se connecter</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/register.html">s'inscrir</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Déconnecter</a>
+            </li>
+
+
+        </ul>
+    </div>
+</nav>
+<!--- End Navigation Bar -->
+
+<div  id="Connecter">
+    <div class="row footer bg-light">
+
+        <div style="padding-top:20px;padding-bottom:20px;padding-left: 600px">
+            <div >
+                <div style="height:150px;width:150px" >
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 119 160" width="119" height="130" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px);">
+                            <defs>
+                                <rect width="119" height="160" x="0" y="0"></rect>
+                            </defs>
+
+
+                            <g style="display: block;" transform="matrix(-0.6698979735374451,-0.011693112552165985,0.011693112552165985,-0.6698979735374451,101.87806701660156,145.96591186523438)" opacity="1"><g opacity="1" transform="matrix(1.5,0,0,1.5,0,0)">
+                                <path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(51,51,51)" stroke-opacity="1" stroke-width="6" d=" M1.7599999904632568,0 C1.7599999904632568,0 9.5,68.75 59.779998779296875,74.83000183105469 C85.5199966430664,78.19000244140625 93.1500015258789,44.56999969482422 72.9800033569336,29.6200008392334 C52.79999923706055,14.670000076293945 1,40.08000183105469 0.09000000357627869,93.62000274658203 C-0.8199999928474426,119.94000244140625 5.539999961853027,132.64999389648438 5.539999961853027,132.64999389648438"></path></g></g>
+                            <g style="display: none;" transform="matrix(0.6253637075424194,-0.24045845866203308,-0.24045845866203308,-0.6253637075424194,93.14442443847656,158.5027618408203)" opacity="1"><g opacity="1" transform="matrix(1.5,0,0,1.5,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(51,51,51)" stroke-opacity="1" stroke-width="6" d=" M1.8020000457763672,21.783000946044922 C1.8020000457763672,21.783000946044922 9.711999893188477,3.072999954223633 9.711999893188477,3.072999954223633 C9.711999893188477,3.072999954223633 23.98200035095215,17.542999267578125 23.98200035095215,17.542999267578125"></path></g></g><g style="display: block;" transform="matrix(0.6279789209365845,-0.2335432767868042,-0.2335432767868042,-0.6279789209365845,93.02388000488281,158.69342041015625)" opacity="1">
+                            <g opacity="1" transform="matrix(1.5,0,0,1.5,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" stroke="rgb(51,51,51)" stroke-opacity="1" stroke-width="6" d=" M1.8020000457763672,21.783000946044922 C1.8020000457763672,21.783000946044922 9.711999893188477,3.072999954223633 9.711999893188477,3.072999954223633 C9.711999893188477,3.072999954223633 23.98200035095215,17.542999267578125 23.98200035095215,17.542999267578125"></path></g></g></svg></div></div></div></div>
+
+        <div style="padding-left: 300px;">
+            <span style="color: black;font-size: x-large">Pour une organisation plus </span><span style="color:red;font-size: xx-large">organisation </span><span style="color: black;font-size: x-large">plus sereine et plus </span><span style="color: green;font-size: xx-large">efficace</span>
+
+            <div style="padding-left: 300px;">
+                <span style="font-size: xx-large">let Start ! </span>
+            </div>
+        </div>
+    </div>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="images/img-01.png" alt="IMG">                </div>
+
+                <form class="login100-form validate-form" name='f' action="perform_login" method='POST'>
+                        <span class="login100-form-title">
+                            Member Login
+                        </span>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Username is required">
+                        <input class="input100" type="text" name="username" placeholder="Username" required autofocus>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                            </span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" name="required" placeholder="Password" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+                                <i class="fa fa-lock" aria-hidden="true"></i>
+                            </span>
+                    </div>
+                    <!-- **********************************************************************************************************************************  -->
+                    <span ng-show="erreur">
+                                Username or password error
+                              </span>
+
+                    <!-- **********************************************************************************************************************************  -->
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit" value="submit">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-12">
+                            <span class="txt1">
+                                Forgot
+                            </span>
+                        <a class="txt2" href="#Sinscrir">
+                            Username / Password?
+                        </a>
+                    </div>
+
+                    <div class="text-center p-t-136">
+                        <a class="txt2" href="#Sinscrir">
+                            Create your Account
+                            <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<!--<div class="row footer bg-light">-->
+
+<!--    <link rel="icon" href="images/logo.png" href="#Welcom">-->
+
+<!--</div>-->
+
+
+
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+<script type="text/javascript" src="js/image-effect.js"></script>
 <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 <script>
 
     angular.module('PolyTask',[]).controller('LoginController', function($scope, $http){
         $scope.erreur = false;
-        console.log("coucou");
         function obtenirParametre (sVar) {
             return unescape(window.location.search.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
         }
