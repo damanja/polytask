@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Starter Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
+    <title>Vos tâches</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
     <style>
@@ -42,6 +43,34 @@
 
 <body ng-controller="MainController">
 
+    <!---Start navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+        <a class="navbar-brand" href="#Welcome">
+            <img src="images/logo.png" width="50" height="50" class="d-inline-block" alt=""> Todo List
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login.html">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='/register'>S'inscrire</a>
+                </li>
+                <!--                <li class="nav-item">-->
+                <!--                    <a class="nav-link" href="/task.html">Tache</a>-->
+                <!--                </li>-->
+
+
+            </ul>
+        </div>
+    </nav>
+    <!--- End Navigation Bar -->
 <!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
 <!--    <div class="container">-->
 <!--        <div class="navbar-header">-->
@@ -71,7 +100,7 @@
     <form ng-submit="ajouter()">
         <div class="form-group">
             <label for="name">Nom de la tache</label>
-            <input ng-model="formData" type="text" class="form-control add-todo" id="newTache" placeholder="Enter le nom de la tache"><span><button type="submit" style="
+            <input ng-model="formData" type="text" class="form-control add-todo" id="newTache" placeholder="Enter le nom de la tache" required><span><button type="submit" style="
       width: 50px;
       height: 50px;
       padding: 10px 16px;
@@ -91,14 +120,18 @@
         <li >
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <div class="input-group-text">
-                        <input type="checkbox"ng-model="task.done" id="task.done" ng-change="modifier(task.task_id, task.formtask)">
+                    <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
 
-                    </div>
                 </div>
-<!--                <input type="text" class="form-control" placeholder={{task.content}} ng-style="task.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} : {}"-->
+                <span ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px; font-size=14px ">
+                    {{task.content}}
+                </span>
+<!--                <input type="text" class="form-control" placeholder={{task.content}} ng-style="task.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} ,{}"-->
 <!--                />-->
-<!--                <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>-->
+<!--                <input type="text" class="form-control" placeholder={{task.content}} ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}"/>-->
+                    <input type="checkbox" ng-model="task.done" ng-checked="task.done" id="task.done" ng-change="check(task.task_id)">
+
+
 
             </div>
             <hr>

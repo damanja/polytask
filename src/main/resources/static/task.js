@@ -39,7 +39,7 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
         $http.put("/check/" + task_id)
             .then(function(data){
                 console.log(data);
-                location.reload();
+//                location.reload();
             })
     };
 })
