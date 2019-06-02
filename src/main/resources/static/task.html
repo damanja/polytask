@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Vos tâches</title>
+    <title>Todo list s</title>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -70,27 +70,7 @@
             </ul>
         </div>
     </nav>
-    <!--- End Navigation Bar -->
-<!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
-<!--    <div class="container">-->
-<!--        <div class="navbar-header">-->
-<!--            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">-->
-<!--                <span class="sr-only">Toggle navigation</span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--                <span class="icon-bar"></span>-->
-<!--            </button>-->
-<!--            <a class="navbar-brand" href="#">Project name</a>-->
-<!--        </div>-->
-<!--        <div class="collapse navbar-collapse">-->
-<!--            <ul class="nav navbar-nav">-->
-<!--                <li class="active"><a href="#">Home</a></li>-->
-<!--                <li><a href="#about">About</a></li>-->
-<!--                <li><a href="#contact">Contact</a></li>-->
-<!--            </ul>-->
-<!--        </div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
-<!--    </div>-->
-<!--</div>-->
+
 
 <div id="container" style="padding-top: 20px">
     <h1 style="color:darkblue">Taches</h1>
@@ -127,22 +107,7 @@
 
                     <input type="checkbox" ng-model="task.done" ng-checked="task.done" id="task.done" ng-change="check(task.task_id)">
 
-                    <!--                    <td>-->
-<!--                    <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">-->
-<!--                        {{task.content}}-->
-<!--                    </strong>-->
-<!--                    <span >-->
-<!--                        <input ng-model="task.formdata" required>-->
-<!--                          <button ng-click="modifier(task.task_id, task.formdata)">modifier</button>-->
-<!--                    </span>-->
-<!--                    </td>-->
-    <!--                <td>-->
-    <!--                    <button ng-click="editKeyword(task.editMode); task.editMode = true">Edit</button>-->
-    <!--                </td>-->
-                    <!-- ---------------------------------------------------------------------------------------- -->
 
-
-<!--                    <td ng-switch="mode[$index]">-->
                     <div ng-switch="mode[$index]" >
                         <div ng-switch-when="edit" id="edit" >
                         <input  ng-model="task.content">
@@ -174,41 +139,6 @@
     </div>
 </div>
 
-<!--<div class="container">-->
-
-<!--    <div class="starter-template">-->
-<!--        <button type="button" class="btn btn-danger" ng-click="deconnecter()">deconnexion</button>-->
-<!--        <h1>Bootstrap starter template</h1>-->
-<!--        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a-->
-<!--            mostly barebones HTML document.</p>-->
-<!--    </div>-->
-<!--    <div>-->
-
-<!--        <form class="form-inline">-->
-<!--            <div class="form-group mx-sm-3 mb-2">-->
-<!--                <label for="inputTask" class="sr-only">Nouvelle tâche</label>-->
-<!--                <input type="text" class="form-control" id="inputTask" placeholder="Ajouter une tâche" ng-model="formData">-->
-<!--            </div>-->
-<!--            <button type="submit" class="btn btn-primary mb-2" ng-click="ajouter()">Ajouter</button>-->
-<!--        </form>-->
-
-
-<!--        <ul class="list-group" ng-repeat="task in tasks">-->
-<!--            <li>-->
-<!--                {{task.content}}-->
-<!--                <form class="form-inline">-->
-<!--                    <div class="form-group mx-sm-3 mb-2">-->
-<!--                        <label for="inputNewTask" class="sr-only">Changer tâche</label>-->
-<!--                        <input type="text" class="form-control" id="inputNewTask" placeholder="Changer la tâche" ng-model="task.formtask">-->
-<!--                    </div>-->
-<!--                    <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>-->
-<!--                </form>-->
-<!--                <button ng-click="supprimer(task.task_id)" class="btn btn-danger">X</button>-->
-<!--                <button ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}" ng-click="check(task.task_id)">o</button>-->
-<!--            </li>-->
-<!--        </ul>-->
-<!--    </div>-->
-<!--</div>&lt;!&ndash; /.container &ndash;&gt;-->
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

@@ -29,10 +29,7 @@ public class JpaTaskRepository implements TaskRepository {
     @Override
     public void modify(int task_id, String content) {
         Task task = entityManager.find(Task.class, task_id);
-//        entityManager.getTransaction().begin();
         task.setContent(content);
-//        entityManager.getTransaction().commit();
-//        entityManager.close();
         entityManager.merge(task);
     }
 

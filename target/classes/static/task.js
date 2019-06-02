@@ -19,15 +19,8 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
             .then(function(data){
                 console.log(data);
                 location.reload();
-                /***************************/
 
             })
-    };
-
-    $scope.editKeyword = function(name,index) {
-        $scope.mode[index] = "edit";
-        console.log(name);
-
     };
 
 
@@ -35,7 +28,7 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
     $scope.supprimer = function(task_id){
         $http.delete("/deleteTask/" + task_id)
             .then(function(){
-                console.log("ok");
+
                 location.reload();
             })
     };
@@ -50,7 +43,6 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
         $http.put("/check/" + task_id)
             .then(function(data){
                 console.log(data);
-//                location.reload();
             })
     };
 })
