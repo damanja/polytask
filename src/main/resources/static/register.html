@@ -7,11 +7,11 @@
 </head>
 
 <body ng-controller="RegisterController">
-<form>
+<form ng-submit="register()">
     Username :
     <label>
         <p class="label-txt">ENTER YOUR USERNAME</p>
-        <input type="text" class="input" ng-model="user.username">
+        <input type="text" class="input" ng-model="user.username" required>
         <div class="line-box">
             <div class="line"></div>
         </div>
@@ -20,12 +20,13 @@
     Password :
     <label>
         <p class="label-txt">ENTER YOUR PASSWORD</p>
-        <input type="text" class="input" ng-model="user.password">
+        <input type="text" class="input" ng-model="user.password" required >
         <div class="line-box">
             <div class="line"></div>
         </div>
     </label>
-    <button ng-click="register()" type="submit">submit</button>
+
+    <button type="submit">submit</button>
 </form>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -36,12 +37,18 @@
 
 <script>
     angular.module('PolyTask',[]).controller('RegisterController', function($scope, $http){
+
         $scope.register = function(){
-            $http.post("/register", $scope.user).then(function(){
-                $scope.user = {};
-                alert("vous etes bien inscrit")
-                window.location.href='/';
-            })
+            $http.post("/register", $scope.user)
+                .success(function(){
+                    $scope.user = {};
+                    alert("vous etes bien inscrit")
+                    window.location.href='/';
+                })
+                .error(function(){
+                    alert("Utilisateur existant");
+                    location.reload();
+                });
         };
     })
 </script>

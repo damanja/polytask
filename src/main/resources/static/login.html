@@ -20,11 +20,11 @@
         <table>
             <tr>
                 <td>User:</td>
-                <td><input type='text' name='username' value=''></td>
+                <td><input type='text' name='username' id="username" value='' required autofocus></td>
             </tr>
             <tr>
                 <td>Password:</td>
-                <td><input type='password' name='password' /></td>
+                <td><input type='password' name='password' id="mdp" required/></td>
             </tr>
             <tr>
                 <td><input name="submit" type="submit" value="submit" /></td>
@@ -36,6 +36,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
 <script>
+
     angular.module('PolyTask',[]).controller('LoginController', function($scope, $http){
         $scope.erreur = false;
         console.log("coucou");
@@ -45,7 +46,28 @@
 
         if(obtenirParametre("error") == "true") $scope.erreur = true;
 
-    })
+    });
+
+
+    // function verifNom(){
+    //     var pseudo = document.getElementById("username");
+    //     var regex=/^[a-zA-Z ]{2,20}$/;
+    //     //  ok=false;
+    //     if(!regex.test(pseudo.value))
+    //     {
+    //         pseudo.style.border = "thick solid #f00";
+    //         //   return 0;
+    //     }
+    //     else
+    //     {
+    //         pseudo.style.border = "thick solid #0f0";
+    //         //return 1;
+    //     }
+    // }
+    //
+    // document.addEventListener("DOMContentLoaded",function(event) {
+    //     console.log("DOM bien bien charge");
+    // });
 
 
 
