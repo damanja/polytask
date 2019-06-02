@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="PolyTask">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+
+
+    <title>Todo list </title>
+    <link rel="icon" href="images/logo.png">
+
+</head>
+
+<body ng-controller="RegisterController">
+
+<div  id="Sinscrir">
+    <!---Start navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+            <img src="images/logo.png" width="50" height="50" class="d-inline-block" alt=""> Todo List
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='register.html'>S'inscrire</a>
+                </li>
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Déconnecter</a>-->
+<!--                </li>-->
+
+
+            </ul>
+        </div>
+    </nav>
+    <!--- End Navigation Bar -->
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="images/img-01.png" alt="IMG">                </div>
+
+                <form class="login100-form validate-form" ng-submit="register()" >
+					<span class="login100-form-title">
+						Créer votre compte
+					</span>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="username" placeholder="Username" ng-model="user.username" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" name="pass" placeholder="Password" ng-model="user.password" required>
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+                    </div>
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            S'inscrire
+                        </button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<!--<form ng-submit="register()">-->
+<!--    Username :-->
+<!--    <label>-->
+<!--        <p class="label-txt">ENTER YOUR USERNAME</p>-->
+<!--        <input type="text" class="input" ng-model="user.username" required>-->
+<!--        <div class="line-box">-->
+<!--            <div class="line"></div>-->
+<!--        </div>-->
+<!--    </label>-->
+<!--    <br/>-->
+<!--    Password :-->
+<!--    <label>-->
+<!--        <p class="label-txt">ENTER YOUR PASSWORD</p>-->
+<!--        <input type="text" class="input" ng-model="user.password" required >-->
+<!--        <div class="line-box">-->
+<!--            <div class="line"></div>-->
+<!--        </div>-->
+<!--    </label>-->
+
+<!--    <button type="submit">submit</button>-->
+<!--</form>-->
+
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+
+<script>
+    angular.module('PolyTask',[]).controller('RegisterController', function($scope, $http){
+
+        $scope.register = function(){
+            $http.post("/register", $scope.user)
+                .success(function(){
+                    $scope.user = {};
+                    alert("vous etes bien inscrit")
+                    window.location.href='/';
+                })
+                .error(function(){
+                    alert("Utilisateur existant");
+                    location.reload();
+                });
+        };
+    })
+</script>
+
+</body>
+</html>

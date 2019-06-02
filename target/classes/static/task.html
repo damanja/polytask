@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang=fr ng-app="PolyTask">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Vos tâches</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .starter-template {
+            padding: 40px 15px;
+            text-align: center;
+        }
+
+        .notdone {
+            color : red;
+            text-decoration : none;
+        }
+        .done {
+            color : green;
+            text-decoration : line-through;
+        }
+
+    </style>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body ng-controller="MainController">
+
+    <!---Start navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar fixed-top  navbar-light bg-light">
+        <a class="navbar-brand" href="#Welcome">
+            <img src="images/logo.png" width="50" height="50" class="d-inline-block" alt=""> Todo List
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/login.html">Se connecter</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href='/register'>S'inscrire</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" ng-click="deconnecter()" href="#">Se déconnecter</a>
+                </li>
+
+
+            </ul>
+        </div>
+    </nav>
+    <!--- End Navigation Bar -->
+<!--<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">-->
+<!--    <div class="container">-->
+<!--        <div class="navbar-header">-->
+<!--            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">-->
+<!--                <span class="sr-only">Toggle navigation</span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--                <span class="icon-bar"></span>-->
+<!--            </button>-->
+<!--            <a class="navbar-brand" href="#">Project name</a>-->
+<!--        </div>-->
+<!--        <div class="collapse navbar-collapse">-->
+<!--            <ul class="nav navbar-nav">-->
+<!--                <li class="active"><a href="#">Home</a></li>-->
+<!--                <li><a href="#about">About</a></li>-->
+<!--                <li><a href="#contact">Contact</a></li>-->
+<!--            </ul>-->
+<!--        </div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+<!--    </div>-->
+<!--</div>-->
+
+<div id="container" style="padding-top: 20px">
+    <h1 style="color:darkblue">Taches</h1>
+    <hr>
+    <div style="background-color: lavender;	padding: 30px 130px 33px 95px;">
+
+        <form ng-submit="ajouter()">
+            <div class="form-group">
+                <label for="name">Nom de la tache</label>
+                <input ng-model="formData" type="text" class="form-control add-todo" id="newTache" placeholder="Enter le nom de la tache" required><span><button type="submit" style="
+          width: 50px;
+          height: 50px;
+          padding: 10px 16px;
+          font-size: 18px;
+          line-height: 1.33;
+          border-radius: 25px;
+          color:blanchedalmond;
+          background-color: black">+</button></span>
+            </div>
+
+
+        </form>
+        <hr>
+
+
+        <ul id="sortable" class="list-unstyled"l ng-repeat=" task in tasks">
+            <li >
+                <div class="input-group mb-3" >
+                    <div class="input-group-prepend">
+                        <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
+
+                    </div>
+                    <td>
+                    <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">
+                        {{task.content}}
+                    </strong>
+                    <span >
+                        <input ng-model="task.content" required>
+                          <button ng-click="modifier(task.task_id, task.content)">modifier</button>
+                    </span>
+                    </td>
+    <!--                <td>-->
+    <!--                    <button ng-click="editKeyword(task.editMode); task.editMode = true">Edit</button>-->
+    <!--                </td>-->
+                    <!-- ---------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
+    <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-style="task.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} ,{}"-->
+    <!--                />-->
+    <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}"/>-->
+                        <input type="checkbox" ng-model="task.done" ng-checked="task.done" id="task.done" ng-change="check(task.task_id)">
+
+
+
+                </div>
+                <hr>
+            </li>
+
+
+        </ul>
+
+    </div>
+</div>
+
+<!--<div class="container">-->
+
+<!--    <div class="starter-template">-->
+<!--        <button type="button" class="btn btn-danger" ng-click="deconnecter()">deconnexion</button>-->
+<!--        <h1>Bootstrap starter template</h1>-->
+<!--        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a-->
+<!--            mostly barebones HTML document.</p>-->
+<!--    </div>-->
+<!--    <div>-->
+
+<!--        <form class="form-inline">-->
+<!--            <div class="form-group mx-sm-3 mb-2">-->
+<!--                <label for="inputTask" class="sr-only">Nouvelle tâche</label>-->
+<!--                <input type="text" class="form-control" id="inputTask" placeholder="Ajouter une tâche" ng-model="formData">-->
+<!--            </div>-->
+<!--            <button type="submit" class="btn btn-primary mb-2" ng-click="ajouter()">Ajouter</button>-->
+<!--        </form>-->
+
+
+<!--        <ul class="list-group" ng-repeat="task in tasks">-->
+<!--            <li>-->
+<!--                {{task.content}}-->
+<!--                <form class="form-inline">-->
+<!--                    <div class="form-group mx-sm-3 mb-2">-->
+<!--                        <label for="inputNewTask" class="sr-only">Changer tâche</label>-->
+<!--                        <input type="text" class="form-control" id="inputNewTask" placeholder="Changer la tâche" ng-model="task.formtask">-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn btn-primary mb-2" ng-click="modifier(task.task_id, task.formtask)">Modifier</button>-->
+<!--                </form>-->
+<!--                <button ng-click="supprimer(task.task_id)" class="btn btn-danger">X</button>-->
+<!--                <button ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}" ng-click="check(task.task_id)">o</button>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </div>-->
+<!--</div>&lt;!&ndash; /.container &ndash;&gt;-->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<script src ="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+
+<script src="task.js"></script>
+
+
+</body>
+</html>
+
