@@ -99,8 +99,8 @@
 
         <form ng-submit="ajouter()">
             <div class="form-group">
-                <label for="name">Nom de la tache</label>
-                <input ng-model="formData" type="text" class="form-control add-todo" id="newTache" placeholder="Enter le nom de la tache" required><span><button type="submit" style="
+                <label for="name">Nom de la tâche</label>
+                <input ng-model="formData" type="text" class="form-control add-todo" id="newTache" placeholder="Enter le nom de la tâche" required><span><button type="submit" style="
           width: 50px;
           height: 50px;
           padding: 10px 16px;
@@ -123,22 +123,42 @@
                         <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
 
                     </div>
-                    <td>
-                    <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">
-                        {{task.content}}
-                    </strong>
-                    <span >
-                        <input ng-model="task.content" required>
-                          <button ng-click="modifier(task.task_id, task.content)">modifier</button>
-                    </span>
-                    </td>
+<!--                    <td>-->
+<!--                    <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">-->
+<!--                        {{task.content}}-->
+<!--                    </strong>-->
+<!--                    <span >-->
+<!--                        <input ng-model="task.formdata" required>-->
+<!--                          <button ng-click="modifier(task.task_id, task.formdata)">modifier</button>-->
+<!--                    </span>-->
+<!--                    </td>-->
     <!--                <td>-->
     <!--                    <button ng-click="editKeyword(task.editMode); task.editMode = true">Edit</button>-->
     <!--                </td>-->
                     <!-- ---------------------------------------------------------------------------------------- -->
 
 
+<!--                    <td ng-switch="mode[$index]">-->
+                    <div ng-switch="mode[$index]" style="padding: 0px 10px">
+                        <div ng-switch-when="edit" id="edit" >
+                        <input  ng-model="task.content">
+                            <button ng-click="modifier(task.task_id, task.content);mode[$index]=0" style="color : cornflowerblue">confirmer</button>
+                            <button ng-click="mode[$index]=0" style="color :cornflowerblue ; padding-left: 5px">annuler</button>
+                        </div>
+                            <div ng-switch-default id="task.content">
+                                <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">
+                                    {{task.content}}
+                                </strong>
+                                    <button ng-click="mode[$index]='edit'" style="color : cornflowerblue">modifier</button>
+                        </div>
+                    </div>
+<!--                    </td>-->
+<!--                    <td>-->
+                    <div>
 
+
+                    </div>
+                        <!--                    </td>-->
 
 
 

@@ -1,7 +1,7 @@
 
 
 angular.module('PolyTask',[]).controller('MainController', function($scope, $http){
-   $scope.mode={};
+    $scope.mode= {};
     $http.get("/taskSet").then(function(response){
         $scope.tasks = response.data;
         console.log($scope.tasks);
@@ -24,8 +24,10 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
             })
     };
 
-    $scope.editKeyword = function(name) {
+    $scope.editKeyword = function(name,index) {
+        $scope.mode[index] = "edit";
         console.log(name);
+
     };
 
 
