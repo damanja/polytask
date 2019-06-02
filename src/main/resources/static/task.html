@@ -62,9 +62,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href='/register'>S'inscrire</a>
                 </li>
-                <!--                <li class="nav-item">-->
-                <!--                    <a class="nav-link" href="/task.html">Tache</a>-->
-                <!--                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link" ng-click="deconnecter()" href="#">Se déconnecter</a>
+                </li>
 
 
             </ul>
@@ -118,14 +118,31 @@
 
     <ul id="sortable" class="list-unstyled"l ng-repeat=" task in tasks">
         <li >
-            <div class="input-group mb-3">
+            <div class="input-group mb-3" >
                 <div class="input-group-prepend">
                     <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
 
                 </div>
-                <span ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px; font-size=14px ">
+                <td>
+                <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">
                     {{task.content}}
+                </strong>
+                <span >
+                    <input ng-model="task.formtask" >
+                      <button ng-click="modifier(task.task_id, task.formtask)">modifier</button>
                 </span>
+                </td>
+<!--                <td>-->
+<!--                    <button ng-click="editKeyword(task.editMode); task.editMode = true">Edit</button>-->
+<!--                </td>-->
+                <!-- ---------------------------------------------------------------------------------------- -->
+
+
+
+
+
+
+
 <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-style="task.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} ,{}"-->
 <!--                />-->
 <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}"/>-->

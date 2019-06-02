@@ -1,6 +1,7 @@
 
 
 angular.module('PolyTask',[]).controller('MainController', function($scope, $http){
+   $scope.mode={};
     $http.get("/taskSet").then(function(response){
         $scope.tasks = response.data;
         console.log($scope.tasks);
@@ -18,8 +19,16 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
             .then(function(data){
                 console.log(data);
                 location.reload();
+                /***************************/
+
             })
     };
+
+    $scope.editKeyword = function(name) {
+        console.log(name);
+    };
+
+
 
     $scope.supprimer = function(task_id){
         $http.delete("/deleteTask/" + task_id)
@@ -32,7 +41,7 @@ angular.module('PolyTask',[]).controller('MainController', function($scope, $htt
     $scope.deconnecter = function(){
         alert("vous allez être déconnecté");
         window.location.href='/logout';
-    }
+    };
 
 
     $scope.check = function(task_id){
