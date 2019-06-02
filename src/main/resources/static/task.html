@@ -119,11 +119,15 @@
         <ul id="sortable" class="list-unstyled"l ng-repeat=" task in tasks">
             <li >
                 <div class="input-group mb-3" >
-                    <div class="input-group-prepend">
-                        <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
 
+
+                    <div class="input-group-prepend" style="padding: 0px 5px">
+                        <button  type="button" class="btn btn-danger btn-sm" ng-click="supprimer(task.task_id)">x</button>
                     </div>
-<!--                    <td>-->
+
+                    <input type="checkbox" ng-model="task.done" ng-checked="task.done" id="task.done" ng-change="check(task.task_id)">
+
+                    <!--                    <td>-->
 <!--                    <strong ng-class="{'done':task.done==1, 'notdone':task.done==0}" style="padding: 0px 10px ">-->
 <!--                        {{task.content}}-->
 <!--                    </strong>-->
@@ -139,7 +143,7 @@
 
 
 <!--                    <td ng-switch="mode[$index]">-->
-                    <div ng-switch="mode[$index]" style="padding: 0px 10px">
+                    <div ng-switch="mode[$index]" >
                         <div ng-switch-when="edit" id="edit" >
                         <input  ng-model="task.content">
                             <button ng-click="modifier(task.task_id, task.content);mode[$index]=0" style="color : cornflowerblue">confirmer</button>
@@ -152,21 +156,11 @@
                                     <button ng-click="mode[$index]='edit'" style="color : cornflowerblue">modifier</button>
                         </div>
                     </div>
-<!--                    </td>-->
-<!--                    <td>-->
+
                     <div>
 
 
                     </div>
-                        <!--                    </td>-->
-
-
-
-
-    <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-style="task.done ? {'text-decoration': 'line-through', 'color': 'rgb(0,0,0,.5)'} ,{}"-->
-    <!--                />-->
-    <!--                <input type="text" class="form-control" placeholder={{task.content}} ng-class="{'btn btn-success':task.done==1, 'btn btn-warning':task.done==0}"/>-->
-                        <input type="checkbox" ng-model="task.done" ng-checked="task.done" id="task.done" ng-change="check(task.task_id)">
 
 
 
