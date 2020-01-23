@@ -19,9 +19,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        /*        Pour tester , on peut faire */
-//        auth.inMemoryAuthentication().withUser("admin").password("password");
-        /*Mais on n'utilise jamais ca en developpement*/
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         auth.jdbcAuthentication().dataSource(dataSource)
